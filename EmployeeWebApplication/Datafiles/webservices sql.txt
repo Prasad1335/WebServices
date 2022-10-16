@@ -1,0 +1,50 @@
+create table Employee(
+Id int primary key identity(1,1),
+EmpName varchar(50))
+
+
+select * from Employee
+
+
+
+create proc SP_InsertEmployee(
+@Name varchar(50)
+)
+as
+begin
+insert into Employee values(@Name)
+end
+
+
+create proc SP_GetAllEmployee
+as
+begin
+select * from Employee
+end
+
+
+create proc SP_DeleteEmployee(@Id int)
+as
+begin
+ DELETE FROM employee WHERE  Id = @id
+end
+
+
+alter proc SP_UpdateRecord(
+@Id int,
+@EmpName varchar(50))
+as
+begin
+UPDATE Employee SET    EmpName = @EmpName WHERE  Id = @Id
+end
+
+
+
+create proc SP_GetById(
+@Id int)
+as
+begin
+select * from Employee WHERE  Id = @Id
+end
+
+
